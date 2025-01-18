@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Main",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/main", // Caminho para o binário gerado pelo Makefile
+            "args": [], // Argumentos para o programa (adicione se necessário)
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}", // Diretório de trabalho
+            "environment": [],
+            "externalConsole": true, // Usa o console externo para entrada/saída
+            "MIMode": "gdb", // Usa o depurador GDB
+            "miDebuggerPath": "/usr/bin/gdb", // Caminho para o GDB (ajuste se necessário)
+            "setupCommands": [
+                {
+                    "description": "Habilita a impressão de informações do tipo de variável.",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "Build with Makefile" // Tarefa de pré-compilação
+        }
+    ]
+}
