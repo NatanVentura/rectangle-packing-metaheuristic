@@ -10,7 +10,7 @@ INCLUDE_DIR = include
 TARGET = main
 
 # Lista de arquivos objeto
-OBJS = $(SRC_DIR)/DAG.o $(SRC_DIR)/instance.o $(SRC_DIR)/simulated_annealing.o $(SRC_DIR)/main.o
+OBJS = $(SRC_DIR)/DAG.o $(SRC_DIR)/instance.o $(SRC_DIR)/simulated_annealing.o $(SRC_DIR)/evolutionary_algorithm.o $(SRC_DIR)/main.o
 
 # Regra padrão: compilar tudo
 all: $(TARGET)
@@ -29,7 +29,10 @@ $(SRC_DIR)/instance.o: $(SRC_DIR)/instance.cpp $(INCLUDE_DIR)/instance.hpp $(INC
 $(SRC_DIR)/simulated_annealing.o: $(SRC_DIR)/simulated_annealing.cpp $(INCLUDE_DIR)/simulated_annealing.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(SRC_DIR)/main.o: $(SRC_DIR)/main.cpp $(INCLUDE_DIR)/instance.hpp $(INCLUDE_DIR)/directed_acyclic_graph.hpp $(INCLUDE_DIR)/simulated_annealing.hpp
+$(SRC_DIR)/evolutionary_algorithm.o: $(SRC_DIR)/evolutionary_algorithm.cpp $(INCLUDE_DIR)/evolutionary_algorithm.hpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(SRC_DIR)/main.o: $(SRC_DIR)/main.cpp $(INCLUDE_DIR)/instance.hpp $(INCLUDE_DIR)/directed_acyclic_graph.hpp $(INCLUDE_DIR)/simulated_annealing.hpp $(INCLUDE_DIR)/evolutionary_algorithm.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Limpa os arquivos gerados

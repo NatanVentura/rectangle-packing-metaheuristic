@@ -6,7 +6,7 @@ class Instance {
     public:
         Instance(vector<double> w, vector<double> h);
         ~Instance() {}
-        int get_area();
+        double get_area();
         vector<coord> get_coords();
         seq_pair get_seq();
         void flip_block(int i);

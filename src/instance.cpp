@@ -68,7 +68,7 @@ void Instance::calculate() {
     }
 }
 
-int Instance::get_area() {
+double Instance::get_area() {
     calculate();
     return area;
 }
