@@ -2,11 +2,10 @@
 #include <util.hpp>
 #include <instance.hpp>
 
-class SimulatedAnnealing {
+class SimulatedAnnealing 
+{
     public:
-
         SimulatedAnnealing(Instance instance);
-
         ~SimulatedAnnealing() {}
 
         void initialize(double initialTemperature, double coolingRate);
@@ -19,8 +18,8 @@ class SimulatedAnnealing {
 
 
     private:
-        Instance best_solution;
         Instance current_solution;
+        Instance best_solution;
         double initial_temperature;
         double cooling_rate;
         double temperature;
