@@ -1,0 +1,196 @@
+Population Size: 1, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 0.0377349 seconds
+Area: 4838.4
+
+Population Size: 2, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 0.375405 seconds
+Area: 4567.5
+
+Population Size: 3, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 0.691434 seconds
+Area: 4838.4
+
+Population Size: 4, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 1.02555 seconds
+Area: 4592.64
+
+Population Size: 5, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 1.27855 seconds
+Area: 4256.14
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 2.15815 seconds
+Area: 4268.55
+
+Population Size: 15, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 4.56825 seconds
+Area: 4129.53
+
+Population Size: 20, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 4.613 seconds
+Area: 4256.64
+
+Population Size: 25, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 6.34563 seconds
+Area: 4113.48
+
+Population Size: 50, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 13.7094 seconds
+Area: 3692.64
+
+Population Size: 100, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 24.6878 seconds
+Area: 3895.96
+
+Population Size: 200, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 52.8186 seconds
+Area: 3858.88
+
+Population Size: 300, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 73.5118 seconds
+Area: 3377.62
+
+Population Size: 400, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 99.1045 seconds
+Area: 3672.5
+
+Population Size: 500, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 123.28 seconds
+Area: 3510.52
+
+Population Size: 1000, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 260.794 seconds
+Area: 3604.3
+
+Population Size: 10, Generations: 1, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 0.558313 seconds
+Area: 4838.4
+
+Population Size: 10, Generations: 2, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 0.806491 seconds
+Area: 4700.16
+
+Population Size: 10, Generations: 3, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 1.15449 seconds
+Area: 4567.29
+
+Population Size: 10, Generations: 4, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 1.14444 seconds
+Area: 4777.74
+
+Population Size: 10, Generations: 5, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 1.36966 seconds
+Area: 4147.2
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 1.83489 seconds
+Area: 4285.42
+
+Population Size: 10, Generations: 15, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 2.90409 seconds
+Area: 4037.7
+
+Population Size: 10, Generations: 20, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 5.22764 seconds
+Area: 3787.4
+
+Population Size: 10, Generations: 25, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 5.66391 seconds
+Area: 3752
+
+Population Size: 10, Generations: 50, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 9.46132 seconds
+Area: 3597.3
+
+Population Size: 10, Generations: 100, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 11.9185 seconds
+Area: 3366.7
+
+Population Size: 10, Generations: 200, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 39.5592 seconds
+Area: 3372.37
+
+Population Size: 10, Generations: 300, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 57.1896 seconds
+Area: 3289
+
+Population Size: 10, Generations: 400, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 61.1998 seconds
+Area: 3086.95
+
+Population Size: 10, Generations: 500, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 62.6778 seconds
+Area: 3034.32
+
+Population Size: 10, Generations: 1000, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 161.301 seconds
+Area: 2989.8
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.1, Crossover Rate: 0.4
+Time: 1.5561 seconds
+Area: 4756.5
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.2, Crossover Rate: 0.4
+Time: 1.76539 seconds
+Area: 4222.32
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.3, Crossover Rate: 0.4
+Time: 2.33317 seconds
+Area: 4661.76
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.4, Crossover Rate: 0.4
+Time: 1.89085 seconds
+Area: 4548.31
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.5, Crossover Rate: 0.4
+Time: 2.65264 seconds
+Area: 4094.18
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 2.7362 seconds
+Area: 4141.28
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.7, Crossover Rate: 0.4
+Time: 2.54156 seconds
+Area: 3993.1
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.9, Crossover Rate: 0.4
+Time: 2.97953 seconds
+Area: 4299.36
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.1
+Time: 1.64336 seconds
+Area: 3970.72
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.2
+Time: 1.5075 seconds
+Area: 4328.9
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.3
+Time: 2.10529 seconds
+Area: 4380.75
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.4
+Time: 2.38227 seconds
+Area: 3865.78
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.5
+Time: 2.10466 seconds
+Area: 4004
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.6
+Time: 2.71414 seconds
+Area: 4245.88
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.7
+Time: 3.1743 seconds
+Area: 4240.2
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.8
+Time: 3.4577 seconds
+Area: 4730.88
+
+Population Size: 10, Generations: 10, Mutation Rate: 0.6, Crossover Rate: 0.9
+Time: 4.25314 seconds
+Area: 3789.27
+

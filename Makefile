@@ -61,7 +61,7 @@ process: $(PROCESS_TARGET)
 
 # Regra para executar o teste do algoritmo evolutivo
 test: $(TEST_TARGET)
-	./$(TEST_TARGET) data/128/instance_0.txt test_output_file.txt
+	./$(TEST_TARGET) data/64/instance_0.txt test_output_file.txt
 
 # Regras para compilar os arquivos fonte em arquivos objeto
 $(BIN_DIR)/DAG.o: $(SRC_DIR)/DAG.cpp $(INCLUDE_DIR)/directed_acyclic_graph.hpp $(INCLUDE_DIR)/util.hpp

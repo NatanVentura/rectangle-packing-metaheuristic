@@ -51,7 +51,7 @@ void processInstance(const std::string& inputFile, const std::string& outputFile
     // Process with genetic algorithm
     start = std::chrono::high_resolution_clock::now();
     EvolutionaryAlgorithm ea(widths, heights);
-    ea.initialize(27, 100, 0.6, 0.4);
+    ea.initialize(50, 50, 0.7, 0.4);
     instance = ea.get_best_solution();
 
     sa = SimulatedAnnealing(instance);

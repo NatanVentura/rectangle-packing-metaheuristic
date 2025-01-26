@@ -23,19 +23,14 @@ int main()
     sa.initialize(100000, 0.99);
     sa.optimize();
     instance = sa.get_best_solution();
-    cout <<"dimensions"<< endl;
-
     for(auto c : instance.get_dimensions())
     {
         cout << c.f << " " << c.s << endl;
     }
-    cout <<"Coord"<< endl;
     for(auto c : instance.get_coords())
     {
         cout << c.f << " " << c.s << endl;
     }
-    cout <<"area"<< endl;
-
     cout << instance.get_area() << endl;
     return 0;
 }

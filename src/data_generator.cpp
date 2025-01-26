@@ -3,21 +3,22 @@
 #include <vector>
 #include <random>
 #include <filesystem>
+#include <cmath>
 
 namespace fs = std::filesystem;
 
 void generateInstances(int numRectangles, int numInstances, const std::string& dir) {
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(1, 109);
+    std::uniform_real_distribution<> dis(1.0, 10.0); // Gera números double de 1.0 a 10.0
 
     for (int i = 0; i < numInstances; ++i) {
         std::string filename = dir + "/instance_" + std::to_string(i) + ".txt";
         std::ofstream outFile(filename);
         outFile << numRectangles << std::endl;
         for (int j = 0; j < numRectangles; ++j) {
-            int width = dis(gen);
-            int height = dis(gen);
+            double width = std::round(dis(gen) * 10) / 10.0; // Arredonda para uma casa decimal
+            double height = std::round(dis(gen) * 10) / 10.0; // Arredonda para uma casa decimal
             outFile << width << " " << height << std::endl;
         }
         outFile.close();
