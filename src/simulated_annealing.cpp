@@ -7,7 +7,8 @@ void SimulatedAnnealing::initialize(double initialTemperature, double coolingRat
     this->temperature = initialTemperature;
 }
 
-SimulatedAnnealing::SimulatedAnnealing(Instance instance) : current_solution(instance), best_solution(instance) {
+SimulatedAnnealing::SimulatedAnnealing(Instance instance, int max_time) : current_solution(instance), best_solution(instance), max_time(max_time) {
+    this->start_time = timeNow();
 }
 
 int rand(int a, int b) {
@@ -16,6 +17,9 @@ int rand(int a, int b) {
 
 void SimulatedAnnealing::optimize() {
     while(temperature > 1) {
+        if(duration(timeNow()-start_time) > max_time){
+            break;
+        }
         update_solution();
         update_temperature();
     }

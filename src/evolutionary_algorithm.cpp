@@ -1,7 +1,7 @@
 #include <evolutionary_algorithm.hpp>
 #include <util.hpp>
 
-EvolutionaryAlgorithm::EvolutionaryAlgorithm(vector<double> w, vector<double> h) {
+EvolutionaryAlgorithm::EvolutionaryAlgorithm(vector<double> w, vector<double> h, int max_time) {
     if (w.size() != h.size()) { 
         throw std::invalid_argument("Invalid instance: w and h must have the same size");
     }
@@ -9,6 +9,8 @@ EvolutionaryAlgorithm::EvolutionaryAlgorithm(vector<double> w, vector<double> h)
     this->h = h; 
     this->numberOfBlocks = w.size(); 
     this->rng = std::mt19937(std::random_device{}()); 
+    this->start_time = timeNow();
+    this->max_time = max_time;
 }
 
 void EvolutionaryAlgorithm::initialize(int populationSize, int generations, double mutationRate, double crossoverRate) {
@@ -128,9 +130,15 @@ Instance EvolutionaryAlgorithm::get_best_solution() {
     initializePopulation();
 
     for (int gen = 0; gen < this->generations; gen++) {
+        if(duration(timeNow()-start_time) > max_time){
+            break;
+        }
         vector<double> fitness(this->populationSize);
         for (int i = 0; i < this->populationSize; i++) {
             fitness[i] = calculateFitness(this->population[i]);
+            if(duration(timeNow()-start_time) > max_time){
+                break;
+            }
         }
 
         auto bestIt = min_element(fitness.begin(), fitness.end());
@@ -140,6 +148,9 @@ Instance EvolutionaryAlgorithm::get_best_solution() {
         newPopulation.push_back(this->population[bestIndex]);
 
         while ((int)newPopulation.size() < this->populationSize) {
+            if(duration(timeNow()-start_time) > max_time){
+                break;
+            }
             Instance parent1 = select(fitness);
             Instance parent2 = select(fitness);
 

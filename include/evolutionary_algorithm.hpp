@@ -4,7 +4,7 @@
 
 class EvolutionaryAlgorithm {
     public:
-        EvolutionaryAlgorithm(vector<double> w, vector<double> h);
+        EvolutionaryAlgorithm(vector<double> w, vector<double> h, int maxTime);
         ~EvolutionaryAlgorithm() {}
         void initialize(int populationSize, int generations, double mutationRate, double crossoverRate);
         Instance get_best_solution();
@@ -14,6 +14,8 @@ class EvolutionaryAlgorithm {
         int populationSize;
         int generations;
         int numberOfBlocks;
+        int max_time;
+        TimeVar start_time;
         vector<double> w, h;
         double mutationRate;
         double crossoverRate;

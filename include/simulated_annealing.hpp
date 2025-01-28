@@ -5,7 +5,7 @@
 class SimulatedAnnealing 
 {
     public:
-        SimulatedAnnealing(Instance instance);
+        SimulatedAnnealing(Instance instance, int max_time);
         ~SimulatedAnnealing() {}
 
         void initialize(double initialTemperature, double coolingRate);
@@ -20,6 +20,8 @@ class SimulatedAnnealing
     private:
         Instance current_solution;
         Instance best_solution;
+        int max_time;
+        TimeVar start_time;
         double initial_temperature;
         double cooling_rate;
         double temperature;
