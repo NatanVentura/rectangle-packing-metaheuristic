@@ -155,7 +155,6 @@ Instance EvolutionaryAlgorithm::get_best_solution() {
             }
             Instance &parent1 = select();
             Instance &parent2 = select();
-
             Instance offspring = crossover(parent1, parent2);
             // mutate(offspring);
 
