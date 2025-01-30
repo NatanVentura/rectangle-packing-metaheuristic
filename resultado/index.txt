@@ -1,0 +1,5 @@
+resultado/hp.yal.txt
+resultado/ami33.yal.txt
+resultado/ami49.yal.txt
+resultado/apte.yal.txt
+resultado/xerox.yal.txt
