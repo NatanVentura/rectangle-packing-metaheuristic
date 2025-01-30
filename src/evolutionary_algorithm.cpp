@@ -22,7 +22,7 @@ EvolutionaryAlgorithm::EvolutionaryAlgorithm(
     this->numberOfBlocks = this->w.size(); 
     this->rng = std::mt19937(std::random_device{}()); 
     this->start_time = timeNow();
-    this->max_time = max_time;
+    this->max_time = maxTime;
 }
 
 void EvolutionaryAlgorithm::mutate(Instance &individual) {
@@ -142,6 +142,8 @@ Instance EvolutionaryAlgorithm::get_best_solution() {
     initializePopulation();
 
     for (int gen = 0; gen < this->generations; gen++) {
+        cout << gen << '\n';
+        cout << duration(timeNow()-start_time) << ' ' << max_time << '\n' << '\n';
         if(duration(timeNow()-start_time) > max_time){
             break;
         }

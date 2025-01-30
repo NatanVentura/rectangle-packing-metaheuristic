@@ -145,7 +145,7 @@ void processInstance(std::pair<std::vector<int64_t>, std::vector<int64_t>> modul
 
     // Process with genetic algorithm
     start = std::chrono::high_resolution_clock::now();
-    EvolutionaryAlgorithm ea(widths, heights, 10, 100, 10000, 0.7, 0.4);
+    EvolutionaryAlgorithm ea(widths, heights, 10, 100, 10000000, 0.7, 0.4);
     instance = ea.get_best_solution();
 
     sa = SimulatedAnnealing(instance, 10);

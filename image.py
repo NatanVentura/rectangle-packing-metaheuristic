@@ -78,18 +78,26 @@ def parse_input(input_data):
 
 def main():
     # Read input file
-    input_file = "resultado/ami33.yal.txt"
-    with open(input_file, 'r') as file:
-        input_data = file.read().splitlines()
+    input_files = [
+        "resultado/ami33.yal.txt",
+        "resultado/ami49.yal.txt",
+        "resultado/apte.yal.txt",
+        "resultado/hp.yal.txt",
+        "resultado/xerox.yal.txt"
+    ]
+    
+    for input_file in input_files:
+        with open(input_file, 'r') as file:
+            input_data = file.read().splitlines()
 
-    blocks, positions, genetic_blocks, genetic_positions = parse_input(input_data)
-    n = len(blocks)
-    genetic_n = len(genetic_blocks)
-    print(n)
+        blocks, positions, genetic_blocks, genetic_positions = parse_input(input_data)
+        n = len(blocks)
+        genetic_n = len(genetic_blocks)
+        print(n)
 
-    # Create the images
-    create_image(n, blocks, positions, "Without Genetic Algorithm")
-    create_image(genetic_n, genetic_blocks, genetic_positions, "With Genetic Algorithm")
+        # Create the images
+        create_image(n, blocks, positions, "Without Genetic Algorithm")
+        create_image(genetic_n, genetic_blocks, genetic_positions, "With Genetic Algorithm")
 
 if __name__ == "__main__":
     main()
