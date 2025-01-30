@@ -119,7 +119,7 @@ void processInstance(std::pair<std::vector<int64_t>, std::vector<int64_t>> modul
     Instance instance(widths, heights);
     instance.gen_random_seq();
     SimulatedAnnealing sa(instance, 10);
-    sa.initialize(100000, 0.99);
+    sa.initialize(7000000000000000000, 0.98);
     sa.optimize();
     instance = sa.get_best_solution();
     auto end = std::chrono::high_resolution_clock::now();
@@ -149,7 +149,7 @@ void processInstance(std::pair<std::vector<int64_t>, std::vector<int64_t>> modul
     instance = ea.get_best_solution();
 
     sa = SimulatedAnnealing(instance, 10);
-    sa.initialize(100000, 0.99);
+    sa.initialize(7000000000000000000, 0.98);
     sa.optimize();
     instance = sa.get_best_solution();
     end = std::chrono::high_resolution_clock::now();
@@ -209,48 +209,52 @@ void processGeneratedInstances(const std::string& indexFilePath, const std::stri
 
     indexFile.close();
 }
-
-int main() {
+void process()
+{
     // Process paper data
-    // std::ifstream indexFile("Data/index_paper.txt");
+    std::ifstream indexFile("Data/index_paper.txt");
     // if (!indexFile.is_open()) {
     //     std::cerr << "Error: Could not open index file Data/index_paper.txt" << std::endl;
     //     return 1;
     // }
 
-    // std::ofstream resultIndexFile("resultado/index.txt");
-    // std::string inputFile;
+    std::ofstream resultIndexFile("resultado/index.txt");
+    std::string inputFile;
 
-    // while (std::getline(indexFile, inputFile)) {
-    //     // Trim whitespace from the input file path
-    //     inputFile.erase(0, inputFile.find_first_not_of(" \t\n\r\f\v"));
-    //     inputFile.erase(inputFile.find_last_not_of(" \t\n\r\f\v") + 1);
+    while (std::getline(indexFile, inputFile)) {
+        // Trim whitespace from the input file path
+        inputFile.erase(0, inputFile.find_first_not_of(" \t\n\r\f\v"));
+        inputFile.erase(inputFile.find_last_not_of(" \t\n\r\f\v") + 1);
 
-    //     std::ifstream testFile(inputFile);
-    //     if (!testFile.is_open()) {
-    //         std::cerr << "Error: Could not open file listed in index: " << inputFile << std::endl;
-    //         continue;
-    //     }
-    //     testFile.close();
+        std::ifstream testFile(inputFile);
+        if (!testFile.is_open()) {
+            std::cerr << "Error: Could not open file listed in index: " << inputFile << std::endl;
+            continue;
+        }
+        testFile.close();
 
-    //     std::string outputFile = "resultado/" + inputFile.substr(5, inputFile.find('/', 5) - 5);
-    //     auto modules = readModules(inputFile);
-    //     if (modules.empty()) {
-    //         std::cerr << "Error: No modules read from file " << inputFile << std::endl;
-    //         continue;
-    //     }
-    //     std::pair<std::vector<int64_t>, std::vector<int64_t>> bin = getHeightsAndWidths(modules);
-    //     std::cout << "Processing instance: " << inputFile << std::endl;
-    //     processInstance(bin, outputFile);
-    //     resultIndexFile << outputFile << '\n';
-    // }
+        std::string outputFile = "resultado/" + inputFile.substr(5, inputFile.find('/', 5) - 5);
+        auto modules = readModules(inputFile);
+        if (modules.empty()) {
+            std::cerr << "Error: No modules read from file " << inputFile << std::endl;
+            continue;
+        }
+        std::pair<std::vector<int64_t>, std::vector<int64_t>> bin = getHeightsAndWidths(modules);
+        std::cout << "Processing instance: " << inputFile << std::endl;
+        processInstance(bin, outputFile);
+        resultIndexFile << outputFile << '\n';
+    }
 
+    indexFile.close();
+    resultIndexFile.close();
+}
 
+int main() {
+    process();
     // Process generated data
-    processGeneratedInstances("Data/index.txt", "resultado");
+    // processGeneratedInstances("Data/index.txt", "resultado");
 
-    std::cout << "Processing completed." << '\n';
-    // indexFile.close();
-    // resultIndexFile.close();
+    // std::cout << "Processing completed." << '\n';
+
     return 0;
 }

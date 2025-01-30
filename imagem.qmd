@@ -91,6 +91,8 @@ def generate_images(input_file):
     # Create the images
     create_image(n, blocks, positions, f"Without Genetic Algorithm - {input_file}")
     create_image(genetic_n, genetic_blocks, genetic_positions, f"With Genetic Algorithm - {input_file}")
+```
+```{python}
 
 # List of input files
 input_files = [
@@ -106,4 +108,7 @@ input_files = [
 # Generate images for each input file
 for input_file in input_files:
     generate_images(input_file)
+```
+```{python}
+
 ```

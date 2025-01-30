@@ -26,24 +26,24 @@ EvolutionaryAlgorithm::EvolutionaryAlgorithm(
 }
 
 void EvolutionaryAlgorithm::mutate(Instance &individual) {
-    // uniform_real_distribution<double> dist(0.0, 1.0);
-    // uniform_int_distribution<int> indexDist(0, this->numberOfBlocks - 1);
+    uniform_real_distribution<double> dist(0.0, 1.0);
+    uniform_int_distribution<int> indexDist(0, this->numberOfBlocks - 1);
 
-    // if (dist(this->rng) > this->mutationRate) return;
+    if (dist(this->rng) > this->mutationRate) return;
 
-    // if(dist(this->rng) <= 0.5) {
-    //     seq_pair temp = individual.get_seq();
-    //     int idx1 = indexDist(this->rng);
-    //     int idx2 = indexDist(this->rng);
-    //     swap(temp.f[idx1], temp.f[idx2]);
-    //     idx1 = indexDist(this->rng);
-    //     idx2 = indexDist(this->rng);
-    //     swap(temp.s[idx1], temp.s[idx2]);
-    //     individual.set_seq(temp);
-    // } else {
-    //     int idx = indexDist(this->rng);
-    //     individual.flip_block(idx);
-    // }
+    if(dist(this->rng) <= 0.5) {
+        seq_pair temp = individual.get_seq();
+        int idx1 = indexDist(this->rng);
+        int idx2 = indexDist(this->rng);
+        swap(temp.f[idx1], temp.f[idx2]);
+        idx1 = indexDist(this->rng);
+        idx2 = indexDist(this->rng);
+        swap(temp.s[idx1], temp.s[idx2]);
+        individual.set_seq(temp);
+    } else {
+        int idx = indexDist(this->rng);
+        individual.flip_block(idx);
+    }
 }
 
 Instance EvolutionaryAlgorithm::crossover(Instance &parent1, Instance &parent2) {
@@ -156,9 +156,9 @@ Instance EvolutionaryAlgorithm::get_best_solution() {
             Instance &parent1 = select();
             Instance &parent2 = select();
             Instance offspring = crossover(parent1, parent2);
-            // mutate(offspring);
+            mutate(offspring);
 
-            // newPopulation.push_back(offspring);
+            newPopulation.push_back(offspring);
         }
 
         population = move(newPopulation);
