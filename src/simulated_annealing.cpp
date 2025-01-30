@@ -16,7 +16,7 @@ int rand(int a, int b) {
 }
 
 void SimulatedAnnealing::optimize() {
-    while(temperature > 1) {
+    while(true) {
         if(duration(timeNow()-start_time) > max_time){
             break;
         }

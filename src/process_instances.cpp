@@ -118,8 +118,8 @@ void processInstance(std::pair<std::vector<int64_t>, std::vector<int64_t>> modul
     auto start = std::chrono::high_resolution_clock::now();
     Instance instance(widths, heights);
     instance.gen_random_seq();
-    SimulatedAnnealing sa(instance, 10);
-    sa.initialize(7000000000000000000, 0.98);
+    SimulatedAnnealing sa(instance, 20);
+    sa.initialize(100, 0.995);
     sa.optimize();
     instance = sa.get_best_solution();
     auto end = std::chrono::high_resolution_clock::now();
@@ -145,11 +145,11 @@ void processInstance(std::pair<std::vector<int64_t>, std::vector<int64_t>> modul
 
     // Process with genetic algorithm
     start = std::chrono::high_resolution_clock::now();
-    EvolutionaryAlgorithm ea(widths, heights, 10, 100, 100, 0.7, 0.4);
+    EvolutionaryAlgorithm ea(widths, heights, 10, 100, 10000, 0.7, 0.4);
     instance = ea.get_best_solution();
 
     sa = SimulatedAnnealing(instance, 10);
-    sa.initialize(7000000000000000000, 0.98);
+    sa.initialize(100, 0.995);
     sa.optimize();
     instance = sa.get_best_solution();
     end = std::chrono::high_resolution_clock::now();
@@ -212,7 +212,7 @@ void processGeneratedInstances(const std::string& indexFilePath, const std::stri
 void process()
 {
     // Process paper data
-    std::ifstream indexFile("Data/index_paper.txt");
+    std::ifstream indexFile("data/index_paper.txt");
     // if (!indexFile.is_open()) {
     //     std::cerr << "Error: Could not open index file Data/index_paper.txt" << std::endl;
     //     return 1;
