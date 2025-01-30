@@ -31,7 +31,7 @@ Instance SimulatedAnnealing::get_best_solution() {
 
 void SimulatedAnnealing::setInitialSolution(Instance ins) {
     current_solution = ins;
-    best_solution = ins;
+    best_solution = move(ins);
 }
 
 double SimulatedAnnealing::acceptance_probability(double delta, double temperature) {
@@ -75,7 +75,7 @@ void SimulatedAnnealing::update_solution() {
 
     double delta = new_solution.get_area() - current_solution.get_area();
     if(acceptance_probability(delta, temperature) > (double)rand()/RAND_MAX) {
-        update_current_solution(new_solution);
+        update_current_solution(move(new_solution));
     }
 
     if(current_solution.get_area() < best_solution.get_area()) {
@@ -84,9 +84,9 @@ void SimulatedAnnealing::update_solution() {
 }
 
 void SimulatedAnnealing::update_best_solution(Instance ins) {
-    best_solution = ins;
+    best_solution = move(ins);
 }
 
 void SimulatedAnnealing::update_current_solution(Instance ins) {
-    current_solution = ins;
+    current_solution = move(ins);
 }

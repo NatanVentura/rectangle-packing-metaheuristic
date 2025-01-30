@@ -3,24 +3,25 @@
 #include <util.hpp>
 
 class Instance {
-    public:
-        Instance(vector<double> w, vector<double> h);
-        ~Instance() {}
-        double get_area();
-        vector<coord> get_coords();
-        seq_pair get_seq();
-        void flip_block(int i);
-        void set_seq(seq_pair s);
-        vector<coord> get_dimensions();
+public:
+    Instance(vector<int64_t> w, vector<int64_t> h);
+    ~Instance() {}
+    int64_t get_area();
+    pair<const vector<int64_t> &, const vector<int64_t> &> get_coords();
+    const seq_pair &get_seq();
+    void flip_block(int i);
+    void set_seq(seq_pair s);
+    pair<const vector<int64_t> &, const vector<int64_t> &> get_dimensions() const;
+    void gen_random_seq(int seed=45);
 
-    private:
-        int n;
-        seq_pair seq;
-        double area;
-        vector<coord> coords;
-        vector<double> w, h;
-        void gen_random_seq(int seed=45);
-        bool is_permutation(vector<int> v);
-        void calculate();
-        bool calculated = false;
+private:
+    bool is_permutation(const vector<int> &v);
+
+    seq_pair seq;
+    int64_t area;
+    vector<int64_t> w_coord, h_coord;
+    vector<int64_t> w, h;
+    
+    void calculate();
+    bool calculated = false;
 };

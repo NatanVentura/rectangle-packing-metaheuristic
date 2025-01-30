@@ -3,26 +3,33 @@
 #include <instance.hpp>
 
 class EvolutionaryAlgorithm {
-    public:
-        EvolutionaryAlgorithm(vector<double> w, vector<double> h, int maxTime);
-        ~EvolutionaryAlgorithm() {}
-        void initialize(int populationSize, int generations, double mutationRate, double crossoverRate);
-        Instance get_best_solution();
+public:
+    EvolutionaryAlgorithm(
+        vector<int64_t> w,
+        vector<int64_t> h,
+        int maxTime,
+        int populationSize,
+        int generations,
+        double mutationRate,
+        double crossoverRate);
+    ~EvolutionaryAlgorithm() {}
+    Instance get_best_solution();
 
-    private:
-        vector<Instance> population;
-        int populationSize;
-        int generations;
-        int numberOfBlocks;
-        int max_time;
-        TimeVar start_time;
-        vector<double> w, h;
-        double mutationRate;
-        double crossoverRate;
-        std::mt19937 rng;
-        void initializePopulation ();
-        Instance select(vector<double> &fitness);
-        Instance crossover(Instance &parent1, Instance &parent2);
-        void mutate(Instance &individual);
-        double calculateFitness (Instance &individual);
+private:
+    const Instance &get_current_best();
+    void initializePopulation();
+    Instance &select();
+    Instance crossover(Instance &parent1, Instance &parent2);
+    void mutate(Instance &individual);
+
+    vector<Instance> population;
+    int populationSize;
+    int generations;
+    int numberOfBlocks;
+    int max_time;
+    mt19937 rng;
+    TimeVar start_time;
+    vector<int64_t> w, h;
+    double mutationRate;
+    double crossoverRate;
 };

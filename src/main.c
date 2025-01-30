@@ -1,5 +1,5 @@
 #include <util.hpp>
-#include <directed_acyclic_graph.hpp>
+#include <DAG.hpp>
 #include <instance.hpp>
 #include <simulated_annealing.hpp>
 #include <evolutionary_algorithm.hpp>

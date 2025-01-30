@@ -1,15 +1,12 @@
 #include <instance.hpp>
-#include <directed_acyclic_graph.hpp>
+#include <DAG.hpp>
 
-Instance::Instance(vector<double> w, vector<double> h) {
+Instance::Instance(vector<int64_t> w, vector<int64_t> h) {
     if(this->w.size() != this->h.size()) {
         throw invalid_argument("Invalid instance");
     }
-    this->n = w.size();
-    this->w = w;
-    this->h = h;
-    this->coords = vector<coord>(n);
-    gen_random_seq();
+    this->w = move(w);
+    this->h = move(h);
 }
 
 vector<int> gen_random_perm(int n){
@@ -20,26 +17,27 @@ vector<int> gen_random_perm(int n){
 }
 
 void Instance::gen_random_seq(int seed) {
+    int n = this->w.size();
     srand(seed);
     seq = seq_pair(gen_random_perm(n), gen_random_perm(n));
 }
 
-vector<coord> Instance::get_dimensions() {
-    vector<coord> dimensions;
-    for(int i = 0; i < n; i++){
-        dimensions.push_back({w[i], h[i]});
-    }
-    return dimensions;
+pair<const vector<int64_t> &, const vector<int64_t> &> Instance::get_dimensions() const {
+    return {w, h};
 }
 
-bool Instance::is_permutation(vector<int> v) {
+bool Instance::is_permutation(const vector<int> &v) {
+    const int n = w.size();
     if(v.size() != n) {
         return false;
     }
-    vector<int> aux = vector<int>(v);
-    sort(aux.begin(), aux.end());
-    for (int i = 0; i < aux.size(); i++) {
-        if (aux[i] != i) {
+
+    vector<bool> has(n);
+    for(auto t : v) {
+        has[t] = 1;
+    }
+    for(auto t : has) {
+        if(!t) {
             return false;
         }
     }
@@ -47,10 +45,8 @@ bool Instance::is_permutation(vector<int> v) {
 }
 
 void Instance::set_seq(seq_pair s) {
-    if (!is_permutation(s.first) || !is_permutation(s.second)) {
-        throw invalid_argument("Invalid permutation");
-    }
-    seq = s;
+    assert(is_permutation(s.first) && is_permutation(s.second));
+    seq = move(s);
     calculated = false;
 }
 
@@ -59,26 +55,23 @@ void Instance::calculate() {
         return;
     }
     calculated = true;
-    DAG horizontal_graph(seq, w);
-    DAG vertical_graph(seq, h, true);
-    area = horizontal_graph.get_packing_dimension() * vertical_graph.get_packing_dimension();
-    for(int i = 0; i < n; i++){
-        coords[i].f = horizontal_graph.get_position(i);
-        coords[i].s = vertical_graph.get_position(i);
-    }
+    w_coord = calculate_dimension(seq, w, false);
+    h_coord = calculate_dimension(seq, h, true);
+
+    area = w_coord[w.size()] * h_coord[h.size()];
 }
 
-double Instance::get_area() {
+int64_t Instance::get_area() {
     calculate();
     return area;
 }
 
-vector<coord> Instance::get_coords() {
+pair<const vector<int64_t> &, const vector<int64_t> &> Instance::get_coords() {
     calculate();
-    return coords;
+    return {w_coord, h_coord};
 }
 
-seq_pair Instance::get_seq() {
+const seq_pair &Instance::get_seq() {
     return seq;
 }
 

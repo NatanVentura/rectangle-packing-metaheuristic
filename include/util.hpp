@@ -5,11 +5,11 @@
 // Bibliotecas padrao
 #include <bits/stdc++.h>
 using namespace std;
-const int INF = 1e9;
+constexpr int64_t INF = 0x3f3f3f3f3f3f3f3f;
 
 // Tipos basicos de dados
 typedef pair<vector<int>, vector<int>> seq_pair;
-typedef pair<double, double> coord;
+typedef pair<int64_t, int64_t> coord;
 
 // Tipos do Clock
 typedef std::chrono::high_resolution_clock::time_point TimeVar;
