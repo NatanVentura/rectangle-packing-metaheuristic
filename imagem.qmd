@@ -1,3 +1,6 @@
+# Rectangle Packing Visualization
+
+```{python}
 import sys
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
@@ -57,7 +60,7 @@ def parse_input(input_data):
     reading_blocks = False
     reading_positions = False
 
-    for line in input_data[input_data.index("With Genetic Algorithm:"):]:
+    for line in input_data[input_data.index("With Genetic Algorithm:"):] :
         if line.startswith("Dimensions:"):
             reading_blocks = True
             reading_positions = False
@@ -76,9 +79,7 @@ def parse_input(input_data):
 
     return blocks, positions, genetic_blocks, genetic_positions
 
-def main():
-    # Read input file
-    input_file = "resultado/ami33.yal.txt"
+def generate_images(input_file):
     with open(input_file, 'r') as file:
         input_data = file.read().splitlines()
 
@@ -88,8 +89,21 @@ def main():
     print(n)
 
     # Create the images
-    create_image(n, blocks, positions, "Without Genetic Algorithm")
-    create_image(genetic_n, genetic_blocks, genetic_positions, "With Genetic Algorithm")
+    create_image(n, blocks, positions, f"Without Genetic Algorithm - {input_file}")
+    create_image(genetic_n, genetic_blocks, genetic_positions, f"With Genetic Algorithm - {input_file}")
 
-if __name__ == "__main__":
-    main()
+# List of input files
+input_files = [
+    "resultado/hp.yal.txt",
+    "resultado/ami33.yal.txt",
+    "resultado/ami49.yal.txt",
+    "resultado/apte.yal.txt",
+    "resultado/xerox.yal.txt"
+]
+```
+
+```{python}
+# Generate images for each input file
+for input_file in input_files:
+    generate_images(input_file)
+```

@@ -118,7 +118,7 @@ void processInstance(std::pair<std::vector<int64_t>, std::vector<int64_t>> modul
     auto start = std::chrono::high_resolution_clock::now();
     Instance instance(widths, heights);
     instance.gen_random_seq();
-    SimulatedAnnealing sa(instance, 600);
+    SimulatedAnnealing sa(instance, 10);
     sa.initialize(100000, 0.99);
     sa.optimize();
     instance = sa.get_best_solution();
@@ -137,7 +137,7 @@ void processInstance(std::pair<std::vector<int64_t>, std::vector<int64_t>> modul
     }
     outFile << "Coordinates:" << '\n';
     {
-        auto [f, s] = instance.get_dimensions();
+        auto [f, s] = instance.get_coords();
         for(int i = 0; i < f.size(); i++) {
             outFile << f[i] << ' ' << s[i] << '\n';
         }
@@ -145,10 +145,10 @@ void processInstance(std::pair<std::vector<int64_t>, std::vector<int64_t>> modul
 
     // Process with genetic algorithm
     start = std::chrono::high_resolution_clock::now();
-    EvolutionaryAlgorithm ea(widths, heights, 600, 50, 50, 0.7, 0.4);
+    EvolutionaryAlgorithm ea(widths, heights, 10, 100, 100, 0.7, 0.4);
     instance = ea.get_best_solution();
 
-    sa = SimulatedAnnealing(instance, 600);
+    sa = SimulatedAnnealing(instance, 10);
     sa.initialize(100000, 0.99);
     sa.optimize();
     instance = sa.get_best_solution();
@@ -167,7 +167,7 @@ void processInstance(std::pair<std::vector<int64_t>, std::vector<int64_t>> modul
     }
     outFile << "Coordinates:" << '\n';
     {
-        auto [f, s] = instance.get_dimensions();
+        auto [f, s] = instance.get_coords();
         for(int i = 0; i < f.size(); i++) {
             outFile << f[i] << ' ' << s[i] << '\n';
         }
@@ -211,7 +211,7 @@ void processGeneratedInstances(const std::string& indexFilePath, const std::stri
 }
 
 int main() {
-    // // Process paper data
+    // Process paper data
     // std::ifstream indexFile("Data/index_paper.txt");
     // if (!indexFile.is_open()) {
     //     std::cerr << "Error: Could not open index file Data/index_paper.txt" << std::endl;
@@ -245,12 +245,12 @@ int main() {
     //     resultIndexFile << outputFile << '\n';
     // }
 
-    // indexFile.close();
-    // resultIndexFile.close();
 
-    // // Process generated data
+    // Process generated data
     processGeneratedInstances("Data/index.txt", "resultado");
 
     std::cout << "Processing completed." << '\n';
+    // indexFile.close();
+    // resultIndexFile.close();
     return 0;
 }
