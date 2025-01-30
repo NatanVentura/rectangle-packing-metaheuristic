@@ -1,7 +1,7 @@
 # Simples é mais sucesso
 # o make file tava complicado porque tinha varias mains
 all:
-	g++ src/*.cpp -I include -O3 -DNDEBUG
+	g++ src/DAG.cpp src/evolutionary_algorithm.cpp src/instance.cpp src/process_instances.cpp src/simulated_annealing.cpp -I include -O3 -DNDEBUG
 
 # pra debugar:
 # all:

@@ -1,5 +1,5 @@
-Data/hp.yal.txt
-Data/ami33.yal.txt
-Data/ami49.yal.txt
-Data/apte.yal.txt
-Data/xerox.yal.txt
+data/hp.yal.txt
+data/ami33.yal.txt
+data/ami49.yal.txt
+data/apte.yal.txt
+data/xerox.yal.txt
